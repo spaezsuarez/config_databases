@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  app:
+    image: gvenzl/oracle-xe:latest
+    ports:
+      - 1521:1521
+    environment:
+      ORACLE_PASSWORD: promo2022
+    volumes:
+      - data:/u01/app/oracle/oradata
+      - './scripts:/container-entrypoint-startdb.d/:ro'
+
+volumes:
+  data:
